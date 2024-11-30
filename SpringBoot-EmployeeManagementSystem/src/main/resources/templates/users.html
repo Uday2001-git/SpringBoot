@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Users</title>
+</head>
+<body>
+	<h1>Employee Management System - Users</h1>
+	<table border="1" width="100%">
+		<tr>
+			<td colspan="5">
+				<table width="100%">
+					<tr>
+						<td align="right"><a th:href="@{/signup}">Add User</a></td>
+						<td align="right"><a th:href="@{/home}">Home</a></td>
+						<td align="right"><a th:href="@{/logout}">Sign-out</a></td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<th>Id</th>
+			<th>Name</th>
+			<th>Password</th>
+			<th>Email</th>
+			<th>Role</th>
+		</tr>
+		<tr th:if="${users.size() == 0}">
+			<td colspan="5" align="left">No more Users!!!</td>
+		</tr>
+
+		<tr th:each="user : ${users}">
+			<td th:text="${user.id}"></td>
+			<td th:text="${user.username}"></td>
+			<td th:text="${user.password}"></td>
+			<td th:text="${user.email}"></td>
+			<td th:text="${user.role}"></td>
+		</tr>
+	</table>
+</body>
+</html>

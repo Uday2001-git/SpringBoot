@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>UPDATE EMPLOYEE</title>
+</head>
+<body>
+	<h1>UPDATE EMPLOYEE FORM</h1>
+	<form th:action="@{/updateEmployee}" th:object="${employee}"
+		method="post">
+		<input type="hidden" th:field="*{id}" />
+		<table border="1">
+			<tr>
+				<td>NAME</td>
+				<td><input th:field="*{name}"></td>
+				<td th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></td>
+			</tr>
+			<tr>
+				<td>ADDRESS</td>
+				<td><input th:field="*{address}"></td>
+				<td th:if="${#fields.hasErrors('address')}" th:errors="*{address}"></td>
+			</tr>
+			<tr>
+				<td>EMAIL</td>
+				<td><input th:field="*{email}"></td>
+				<td th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></td>
+			</tr>
+			<tr>
+				<td>PHONE NUMBER</td>
+				<td><input th:field="*{phoNumber}"></td>
+				<td th:if="${#fields.hasErrors('phoNumber')}" th:errors="*{phoNumber}"></td>
+			</tr>
+			<tr>
+				<td>SALARY</td>
+				<td><input th:field="*{salary}"></td>
+				<td th:if="${#fields.hasErrors('salary')}" th:errors="*{salary}"></td>
+			</tr>
+			<tr>
+				<td colspan="3" align="center"><input type="submit"
+					value="Update Employee" /> <a th:href="@{/get_All}">CANCLE</a></td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>
